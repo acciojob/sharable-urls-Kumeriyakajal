@@ -1,8 +1,29 @@
 <!DOCTYPE html>
 <html>
   <body>
-    <script type="text/javascript" src="./script.js">
-</script>
-  </body>
+    <form onSubmit="handleSubmit(event)">
+      <h3 id="url">https://localhost:8080/</h3>
 
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name"  />
+
+      <label for="year">Graduation Year</label>
+      <input type="text" id="year" name="year"  />
+
+      <button type="submit">Submit</button>
+    </form>
+
+    <script>
+      function handleSubmit(event) {
+        event.preventDefault(); 
+
+        let name = document.getElementById('name').value;
+        let year = document.getElementById('year').value;
+        let urlID = `https://localhost:8080/?name=${name}&year=${year}`;
+
+        let url = document.getElementById('url');
+        url.innerText = urlID;
+      }
+    </script>
+  </body>
 </html>
